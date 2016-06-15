@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+</body>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script>
+    var socket = io.connect();
+    //当客户端收到消息时执行的回调函数
+    socket.on("message",function(data){
+        console.log(data);
+        socket.send("消息已接收到");
+    });
+    //当与服务器端失去连接时执行的回调函数
+    socket.on("disconnect",function(){
+        console.log("服务器断开连接。")
+    });
+</script>
+</html>
